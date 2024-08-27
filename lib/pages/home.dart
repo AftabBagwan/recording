@@ -17,7 +17,10 @@ class _HomeState extends State<Home> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Home"),
+          title: Text(
+            "Record",
+            style: TextStyle(color: AppColors.white),
+          ),
           backgroundColor: AppColors.red,
           bottom: TabBar(
             indicatorColor: AppColors.white,
