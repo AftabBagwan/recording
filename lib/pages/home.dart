@@ -23,6 +23,7 @@ class _HomeState extends State<Home> {
           ),
           backgroundColor: AppColors.red,
           bottom: TabBar(
+            dividerColor: AppColors.red,
             indicatorColor: AppColors.white,
             tabs: [
               Tab(
@@ -45,8 +46,8 @@ class _HomeState extends State<Home> {
         ),
         body: TabBarView(
           children: [
-            const Record(),
-            const RecordDrive(),
+            Record(),
+            RecordDrive(),
             Container(),
           ],
         ),

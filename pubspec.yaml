@@ -39,8 +39,8 @@ dependencies:
   permission_handler: ^11.3.1
   path_provider: ^2.1.4
   audioplayers: ^6.1.0
-  flutter_audio_waveforms: ^1.2.1+8
-
+  provider: ^6.1.2
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
