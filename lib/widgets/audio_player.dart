@@ -60,7 +60,7 @@ class AudioPlayerWidget extends StatelessWidget {
               Row(
                 children: [
                   const Icon(Icons.volume_down),
-                  Container(
+                  SizedBox(
                     width: 100,
                     child: Slider(
                       value: playerProvider.volume,

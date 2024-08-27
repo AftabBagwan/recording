@@ -46,8 +46,8 @@ class _HomeState extends State<Home> {
         ),
         body: TabBarView(
           children: [
-            Record(),
-            RecordDrive(),
+            const Record(),
+            const RecordDrive(),
             Container(),
           ],
         ),
