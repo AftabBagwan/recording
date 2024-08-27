@@ -95,14 +95,16 @@ class _RecordState extends State<Record> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TimeColumn(label: getFormattedTime(hours), time: 'h'),
-            TimeColumn(label: getFormattedTime(minutes), time: 'm'),
-            TimeColumn(label: getFormattedTime(seconds), time: 's'),
+            TimeColumn(label: getFormattedTime(hours), time: 'H'),
+            TimeColumn(label: getFormattedTime(minutes), time: 'M'),
+            TimeColumn(label: getFormattedTime(seconds), time: 'S'),
           ],
         ),
-        const Text(
-          "Press the button to record",
-          style: TextStyle(fontSize: 16),
+        Text(
+          isRecording
+              ? "Press the button to stop the recording"
+              : "Press the button to record",
+          style: TextStyle(fontSize: 16, color: AppColors.red),
         ),
         const SizedBox(
           height: 20,

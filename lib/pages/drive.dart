@@ -33,6 +33,7 @@ class _RecordDriveState extends State<RecordDrive> {
     _audioPlayer.onPlayerComplete.listen((event) {
       setState(() {
         _isPlaying = false;
+        playingIndex = -1;
       });
     });
   }
@@ -56,28 +57,38 @@ class _RecordDriveState extends State<RecordDrive> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        itemCount: _recordings.length,
-        itemBuilder: (context, index) {
-          String fileName = _recordings[index].path.split('/').last;
-          return ListTile(
-            title: Text(fileName),
-            trailing: IconButton(
+    return ListView.builder(
+      itemCount: _recordings.length,
+      itemBuilder: (context, index) {
+        String fileName = _recordings[index].path.split('/').last;
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 3,
+            child: ListTile(
+              title: Text(fileName),
+              trailing: IconButton(
                 icon: playingIndex == index
                     ? const Icon(Icons.pause)
                     : const Icon(Icons.play_arrow),
                 onPressed: () {
                   if (!_isPlaying) {
                     _startPlaying(_recordings[index].path);
-                    playingIndex = index;
+                    setState(() {
+                      playingIndex = index;
+                    });
                   } else {
                     _stopPlaying();
                   }
-                }),
-          );
-        },
-      ),
+                },
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
